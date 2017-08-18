@@ -1,0 +1,53 @@
+<div class = "container">
+  <app-topdiv-fixed></app-topdiv-fixed>
+  <md-progress-bar mode="indeterminate" class="progressbar" *ngIf="loading == 1">  </md-progress-bar>
+  <div class="loaderror" *ngIf="loadError == 1">
+    Something went wrong<br><br>
+    <button md-fab (click)="initiate()"><i class="material-icons md-48">refresh</i></button>
+  </div>
+
+  <div class="loaderror" *ngIf="cart.currentItem == 0">
+    <br>
+    <br><br><br><br>Your Cart is Empty<br><br><i class="material-icons icon48">remove_shopping_cart</i>
+  </div>
+  <br><br>
+  <div class="inlinediv priceshow showbottomborder" *ngIf="loading == 0 && loadError == 0 && cart.currentItem > 0 && downPaymentNeeded == 1">
+    <label class="cartlabel">
+      <label class="leftspan">Cart amount: </label>
+      <label class="rightspan cartvalue">₹ {{cart.cartAmount.toFixed(2)}}</label>
+      <br>
+      <label class="leftspan">Loan eligibility: </label>
+      <label class="rightspan eligible">₹ {{cart.eligibleAmount}}</label>
+    </label>
+  </div>
+  <div class="inlinediv priceshow" *ngIf="loading == 0 && loadError == 0 && cart.currentItem > 0 && downPaymentNeeded == 1">
+    <label class="cartlabel">
+      <label class="leftspan">Down payment: </label>
+      <label class="rightspan downpayment">₹ {{downPayment.toFixed(2)}}</label>
+    </label>
+  </div>
+  <div class="inlinediv priceshow" *ngIf="loading == 0 && loadError == 0 && cart.currentItem > 0 && downPaymentNeeded == 0">
+    <label class="cartlabel">
+      <label class="leftspan">Total cart amount: </label>
+      <label class="rightspan cartvalue">₹ {{cart.cartAmount.toFixed(2)}}</label>
+    </label>
+  </div>
+  <div class="inlinediv center" *ngIf="loading == 0 && loadError == 0 && cart.currentItem > 0">
+  <br>
+  <br>
+  <br>
+  <form [formGroup] = "form">
+  <section class="example-section">
+    <md-checkbox formControlName="tandc" (click)="tandcBox()"><label class="tandc">I have read to all Terms & Conditions</label></md-checkbox>
+  </section>
+  </form>
+    <br>
+    <br>
+    <button class="checkoutButton" *ngIf = "tandcVal == false" md-raised-button routerLink="/final">Submit Loan Application &nbsp;<i class="material-icons">description</i></button>
+
+  </div>
+  <div class="lowerestimatediv"  *ngIf="cart.currentItem == 0">
+    <button md-raised-button  class="addmoreButton" routerLink="/menu">Add Item &nbsp;<i class="material-icons">add_shopping_cart</i></button>
+  </div>
+</div>
+<app-rmh-servicename-fixed></app-rmh-servicename-fixed>

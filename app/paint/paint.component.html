@@ -1,0 +1,91 @@
+<div class = "container">
+  <app-topdiv-fixed></app-topdiv-fixed>
+  <md-progress-bar mode="indeterminate" class="progressbar" *ngIf="choose.Loading == 1">  </md-progress-bar>
+
+  <div class="loaderror" *ngIf="choose.companyloadError == 1">
+  Something went wrong<br><br>
+  <button md-fab (click)="choose.loadcompany()"><i class="material-icons md-48">refresh</i></button>
+  </div>
+
+  <br><br>
+  <form [formGroup] = "form" class="lightback">
+
+    <md-input-container class="areaget" *ngIf="choose.companyload == 1">
+      <input class="areaget1" mdInput placeholder="Total area of walls" formControlName="dim" (ngModelChange)="choose.getDim($event)">
+      <span mdSuffix>&nbsp; Sq. Ft.</span>
+      <md-error *ngIf="form.controls.dim.hasError('pattern')">
+        Dimension must be a number
+      </md-error>
+      <md-error *ngIf="form.controls.dim.hasError('required')">
+        Dimention <strong>required</strong>
+      </md-error>
+      <md-error *ngIf="form.controls.dim.hasError('minlength') || form.controls.dim.hasError('maxlength')">
+        Put something <strong>realistic</strong>
+      </md-error>
+    </md-input-container>
+    <br><br>
+    <md-select placeholder="Select Brand" *ngIf="choose.companyload == 1" class="dropdownget" formControlName="company">
+      <md-option class="dropdownget1" *ngFor="let com of choose.company" [value]="com" (click)="choose.loadtype(com)">{{com}}
+      </md-option>
+    </md-select>
+    <br><br><br>
+
+    <div class="loaderror" *ngIf="choose.typeloadError == 1">
+      Something went wrong<br><br>
+      <button md-fab (click)="choose.loadtype(form.controls.company.value)"><i class="material-icons md-48">refresh</i></button>
+    </div>
+    <md-select placeholder="Select Type" *ngIf="choose.typeload == 1 && choose.typeloadError == 0" class="dropdownget" formControlName="type">
+      <md-option class="dropdownget1" *ngFor="let com of choose.types.type, let i = index" [value]="choose.types.serviceId[i]" (click)="choose.loadvendor(choose.types.serviceId[i], com); resetRadio()">{{com}}
+      </md-option>
+    </md-select>
+
+    <br><br>
+
+    <div class="loaderror" *ngIf="choose.vendorloadError == 1">
+      Something went wrong<br><br>
+      <button md-fab (click)="choose.loadvendor(form.controls.type.value)"><i class="material-icons md-48">refresh</i></button>
+    </div>
+
+    <div *ngIf="choose.vendorload == 1 && choose.vendorloadError == 0">
+      <label class="smallheader">Choose a vendor</label><br>
+    <md-radio-group class="example-radio-group" formControlName="vendor">
+
+    <table *ngFor="let vendor of choose.vendors.name, let i = index" class="tablevendor">
+
+      <tr>
+        <td>
+          <md-radio-button [value]="choose.vendors.vendorId[i]" class="vendor" (click)="choose.getRate(choose.vendors.rate[i], choose.vendors.vendorId[i], vendor)">
+          </md-radio-button>
+        </td>
+        <td>
+          <label class="vendor">{{vendor}}</label>
+        </td>
+        <td>
+          <label class="vendor"><strong> ₹ {{choose.vendors.rate[i]}} </strong>/ sq ft.</label>
+        </td>
+      </tr>
+
+        <tr>
+          <td colspan="3">
+            <label class="vendor vendorAdd">{{choose.vendors.address[i]}}</label>
+          </td>
+        </tr>
+
+    </table>
+    </md-radio-group>
+</div>
+
+    <br>
+    <div class="lowerestimatediv"  *ngIf="choose.vendorload == 1 && choose.vendorloadError == 0 && (choose.currentRate * choose.currentDim) > 0 && form.valid">
+      <div class="estimateDiv">
+        <label class="estimate"><strong>₹ {{(choose.currentRate * choose.currentDim).toFixed(2)}}</strong><sup>*</sup></label><br>
+      <label class="vendor vendorAdd">This is an estimate subject to change.</label>
+      </div>
+      <div class="nextButtonDiv">
+        <button  md-fab (click)="choose.proceed()"><i class="material-icons">navigate_next</i></button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<app-rmh-servicename-fixed></app-rmh-servicename-fixed>

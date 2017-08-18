@@ -1,0 +1,14 @@
+<div *ngIf="isTitle == 1">
+
+  <h2 md-dialog-title>{{title}}</h2>
+  <br><br>
+  <md-dialog-content>
+    <label class="body">{{body}}</label>
+  </md-dialog-content>
+</div>
+
+<div *ngIf="isTitle == 0">
+
+  <h2 md-dialog-title>{{body}}</h2>
+
+</div>

@@ -1,0 +1,11 @@
+.body1{
+  margin: 0;
+  min-height: calc(100vh);
+  overflow:auto;
+  background: linear-gradient(#80002a 0%, #000000 100%);
+  position: relative;
+}
+.body1>* {
+  display: block;
+
+}

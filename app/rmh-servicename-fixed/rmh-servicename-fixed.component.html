@@ -1,0 +1,6 @@
+<div [ngClass]="(this.cart.currentItem > 0)?'lower' : 'lower mid' ">
+  <label [ngClass]="(this.cart.currentItem > 0)?'name' : '' ">Renovate My Home</label>
+
+</div>
+<i class="material-icons icon48" *ngIf="this.cart.currentItem > 0" routerLink="/checkout">shopping_cart</i>
+<label class="items" *ngIf="this.cart.currentItem > 0">{{items}}</label>

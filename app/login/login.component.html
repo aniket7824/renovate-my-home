@@ -1,0 +1,28 @@
+<div Class="maincontainer">
+  <md-progress-bar mode="indeterminate" *ngIf="showload==1">
+  </md-progress-bar>
+  <br>
+  <br> <br>
+  <img src="/../../assets/LOGO.png" class="imglogo">
+  <br> <br>
+  <br><br> <br>
+  <br>
+  <form [formGroup] = "form">
+
+    <input class="formele" type="text" placeholder="Username" formControlName="username">
+
+    <br>
+    <br>
+
+    <input class="formele" type="password" placeholder="Password" formControlName="password">
+
+  </form>
+  <br>
+  <br><br>
+  <br>
+  <button md-raised-button class="sbt" (click)="login()" [disabled]="!form.valid" *ngIf="showload==0">L O G I N</button>
+  <br><br>
+  <br>
+  <label class="errormes" *ngIf="loginerror == 1">Invalid credentials! Try again</label>
+  <label class="errormes" *ngIf="loginerror == 2">Something went wrong! Try again</label>
+</div>

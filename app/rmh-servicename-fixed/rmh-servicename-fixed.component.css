@@ -1,0 +1,41 @@
+.lower{
+  font-family: Lato;
+  font-size: 30px;
+  background: linear-gradient(to right, #1B176B 0%, #1E79BF 100%);
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  font-weight: 500;
+  width: calc(100vw);
+  display: flex;
+  align-items: center;
+
+}
+.name{
+  padding-left:10px;
+}
+.items{
+  color: black;
+  background-color: gold;
+  font-family: Lato;
+  border-radius: 9px;
+  font-size: 14px;
+  padding: 5px;
+  position: fixed;
+  bottom: 28px;
+  right: 12px;
+}
+
+.icon48{
+  font-size: 36px;
+  position: fixed;
+  bottom: 4px;
+  right: 10px;
+  color: white;
+}
+.mid{
+  justify-content: center;
+}

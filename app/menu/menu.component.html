@@ -1,0 +1,45 @@
+<div class = "container">
+  <app-topdiv-fixed></app-topdiv-fixed>
+  <label class="menuhead">Select a Service</label>
+  <br>
+  <br>
+
+  <div class="buttonbase paint">
+    <div class="buttoncover" (click)="goService('P')">
+      Painting
+    </div>
+  </div>
+
+  <div class="buttonbase floor">
+    <div class="buttoncover" (click)="goService('F')">
+      Flooring
+    </div>
+  </div>
+  <br>
+  <div class="buttonbase ceiling">
+    <div class="buttoncover" (click)="goService('R')">
+      Ceiling
+    </div>
+  </div>
+
+  <div class="buttonbase waterproofing">
+    <div class="buttoncover" (click)="goService('W')">
+      Water Proofing
+    </div>
+  </div>
+  <br>
+  <div class="buttonbase curtains">
+    <div class="buttoncover" (click)="goService('C')">
+      Curtains
+    </div>
+  </div>
+
+  <div class="buttonbase ac">
+    <div class="buttoncover" (click)="goService('A')">
+      AC
+    </div>
+  </div>
+
+</div>
+
+<app-rmh-servicename-fixed></app-rmh-servicename-fixed>

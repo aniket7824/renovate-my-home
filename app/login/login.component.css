@@ -1,0 +1,67 @@
+.maincontainer{
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+
+}
+.full-width{
+  width: 80%;
+
+}
+.imglogo{
+  width: 70% ;
+  height: auto;
+}
+.sbt{
+  margin: 0 auto;
+  color: navy;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-family: Roboto;
+  width: 140px;
+  height: 40px;
+  padding: 0 24px;
+  font-size: 18px;
+  font-weight: 600;
+
+}
+.formele{
+  font-size: 26px;
+  background-color: transparent;
+  font-family: Roboto;
+  border: 0;
+  color: #fff;
+  border-bottom: 2px solid #ffcc80;
+  transition: .2s;
+  width: 80%;
+  transition-timing-function: ease-in-out;
+}
+.formele:focus{
+  border-bottom: 2px solid #d9b3ff;
+  outline: none;
+}
+.formele:hover{
+  border-bottom: 2px solid #d9b3ff;
+}
+.formele::-webkit-input-placeholder{
+  color: aliceblue;
+  font-size: 22px;
+}
+
+.formele.ng-invalid.ng-dirty.ng-touched{
+  border-bottom: 2px solid red;
+}
+
+.errormes{
+  color: red;
+  font-family: Roboto;
+  font-size: 20px;
+}

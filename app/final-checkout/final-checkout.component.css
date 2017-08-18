@@ -1,0 +1,142 @@
+.container{
+  margin: 0;
+  padding: 80px 15px 90px 15px;
+  text-align: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  min-height: calc(100vh - 80px - 90px);
+  background: linear-gradient(#ffffff 0%, #f1efef 100%);
+  overflow: scroll;
+}
+.cartname{
+  font-family: Roboto;
+  font-size: 36px;
+  border-bottom: solid 2px dodgerblue;
+}
+.inlinediv{
+  width: 100%;
+  display: inline-block;
+  padding: 0px;
+}
+.cartcontent{
+  text-align: center;
+}
+.leftspan{
+  float: left;
+}
+.rightspan{
+  float: right;
+}
+
+.icon36{
+  font-size: 36px;
+}
+.icon48{
+  font-size: 48px;
+}
+.icon18{
+  font-size: 18px;
+}
+.header{
+  font-family: Roboto;
+  font-size: 14px
+}
+.amount{
+  font-family: Roboto;
+  font-size: 22px
+}
+.cartamount{
+  color: #80002a;
+}
+.removeButton{
+  width: 90px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.loanamount{
+  color: red;
+}
+.progressbar{
+  position: fixed;
+  left: 0px;
+  top: 70px;
+  width: calc(100vw);
+}
+.cartitem{
+  width: 100%;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  box-sizing: border-box;
+  font-family: Roboto;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.cartItemHeading{
+  font-size: 20px;
+}
+.cartServiceDetails{
+  font-size: 16px;
+}
+.cartVendorName{
+  font-size: 13px;
+}
+.cartItemPrice{
+  font-size: 20px;
+  color: #1B176B;
+}
+.tdDetails{
+  text-align: left;
+}
+.tdPrice{
+  text-align: right;
+}
+.loaderror{
+  width: calc(100vw - 40px);
+  display: inline-block;
+  font-family: Roboto;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+}
+.make-full-width{
+  width: 100%;
+}
+.addmoreButton{
+  font-family: Roboto;
+  font-size: 20px;
+  color: black;
+  height: 80%;
+}
+.checkoutButton{
+  font-family: Roboto;
+  font-size: 20px;
+  color: white;
+  background-color: #80002a;
+  height: 80%;
+}
+.leftMar{
+  margin-left: 15px;
+}
+.rightMar{
+  margin-right: 15px;
+}
+
+.lowerestimatediv{
+  background: linear-gradient(to right, #1B176B 0%, #1E79BF 100%);
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: white;
+  width: calc(100vw);
+  z-index: 1;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+

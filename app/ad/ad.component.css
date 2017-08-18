@@ -1,0 +1,30 @@
+.container{
+  margin: 0;
+  margin-top: 80px;
+  padding: 0px 15px 15px 15px;
+  overflow:auto;
+  position: relative;
+}
+.adimg{
+  width: 100%;
+  height: auto;
+}
+.progressbar{
+  position: fixed;
+  left: 0px;
+  top: 70px;
+  width: calc(100vw);
+}
+.loaderror{
+  width: calc(100vw - 40px);
+  display: inline-block;
+  font-family: Roboto;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+}
+.custName{
+  font-family: Roboto;
+  font-size: 22px;
+  color: white;
+}

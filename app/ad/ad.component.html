@@ -1,0 +1,16 @@
+<app-topdiv-fixed></app-topdiv-fixed>
+<div class = container>
+  <md-progress-bar mode="indeterminate" class="progressbar" *ngIf="showload == 1">  </md-progress-bar>
+
+
+  <br><br><label class="custName">Welcome {{customerService.name}}</label>
+
+  <div class="loaderror" *ngIf="loaderror == 1">
+    Something went wrong<br><br>
+    <button md-fab (click)="initialize()"><i class="material-icons md-48">refresh</i></button>
+  </div>
+
+  <br><br><br><br><br><br>
+<img *ngIf="ad_eligible == 1 && load == 1" src="/../../assets/ad_eligible.png" class="adimg" (click)="checkEligibilityNGoMenu()">
+<img *ngIf="ad_eligible == 0 && load == 1" src="/../../assets/ad_not_eligible.png" class="adimg" (click)="notEligibleDialog()">
+</div>

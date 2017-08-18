@@ -1,0 +1,80 @@
+<div class = "container">
+  <app-topdiv-fixed></app-topdiv-fixed>
+  <!md-progress-bar mode="indeterminate" class="progressbar" *ngIf="loading == 1">  <!/md-progress-bar>
+
+  <div class="inlinediv topbar">
+    <div class ="loaderdiv inlinediv" *ngIf="submissionLoad != 1">
+
+      <div class="loaderror" *ngIf="LoadError == 1">
+        Something went wrong<br><br>
+        <button md-fab (click)="loadEligibility()"><i class="material-icons md-48">refresh</i></button>
+      </div>
+
+      <md-progress-spinner mode="indeterminate" color="grey" class="spinner" *ngIf="eligibilityLoading == 1 && LoadError == 0"> </md-progress-spinner>
+      <label class="loadingLabel" *ngIf="eligibilityLoading == 1 && LoadError == 0">Cheecking Eligibility</label>
+
+
+      <label class="loadedLabel" *ngIf="eligibilityLoad == 1 && LoadError == 0"><i class="material-icons tick" *ngIf="eligibilityLoad == 1" >done</i>You are eligible</label>
+
+      <br><br>
+
+
+      <md-progress-spinner mode="indeterminate" color="grey" class="spinner" *ngIf="submissionLoading == 1 && eligibilityLoad == 1"> </md-progress-spinner>
+      <label class="loadingLabel" *ngIf="submissionLoading == 1 && eligibilityLoad == 1">Submitting Application</label>
+
+    </div>
+    <div class ="loadeddiv inlinediv" *ngIf="eligibilityLoad == 1 && submissionLoad == 1">
+      <i class="material-icons icon48">done</i>
+      <br>
+      Your loan application had successfully submitted
+      <br><br>
+      <label class="font18">Your application id is</label>
+      <br>
+      <label class="applicationNum">{{appid}}</label>
+    </div>
+    <br><br>
+    <div class ="loaderdiv inlinediv" *ngIf="eligibilityLoad == 1 && submissionLoad == 1 && vendorLoading == 1">
+      <md-progress-spinner mode="indeterminate" ></md-progress-spinner>
+    </div>
+    <div class="loaderror" *ngIf="vendorLoadError == 1">
+      <br><br>Something went wrong<br><br>
+      <button md-fab (click)="loadEligibility()"><i class="material-icons md-48">refresh</i></button>
+    </div>
+    <div class ="cartcontent inlinediv" *ngIf="eligibilityLoad == 1 && submissionLoad == 1 && vendorLoad == 1">
+
+
+      <div class="inlinediv cartitem" *ngFor="let item of serviceName, let i = index">
+        <label class="leftspan cartItemHeading">Service: {{item}}</label>
+        <br>
+        <br>
+        <table class="make-full-width">
+          <tr>
+            <td class="tdDetails bottomborder">
+              <label class="cartServiceDetails">{{serviceDetails[i]}}</label></td>
+
+            <td class="tdPrice bottomborder"><label class="cartItemPrice">₹ {{amount[i].toFixed(2)}}</label></td>
+          </tr>
+          <tr>
+            <td class="tdDetails">
+              <br>
+              <label class="cartVendorName">{{vendorName[i]}}</label><br>
+            </td>
+            <td></td>
+            </tr>
+          <tr>
+            <td class="tdDetails">
+              <label class="cartVendorDetails">Address: {{vendorAddress[i]}}</label>
+            </td>
+            <td class="tdPrice">
+              <label class="cartVendorDetails">Phone: {{vendorPhone[i]}}</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+  </div>
+<app-rmh-servicename-fixed></app-rmh-servicename-fixed>

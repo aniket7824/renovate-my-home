@@ -1,0 +1,79 @@
+.container{
+  margin: 0;
+  padding: 80px 15px 50px 15px;
+  overflow:auto;
+  position: relative;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px - 50px);
+}
+.menuhead{
+  font-size: 28px;
+  font-family: Roboto;
+  color: white;
+  padding: 0 40px 5px 40px;
+  border-bottom: solid 2px dodgerblue;
+  margin-bottom: 10px;
+}
+.paint{
+  background-image: url(../../assets/menu/paint.png);
+}
+.floor{
+  background-image: url(../../assets/menu/floor.png);
+}
+.ceiling{
+  background-image: url(../../assets/menu/celling.png);
+}
+.waterproofing{
+  background-image: url(../../assets/menu/waterproofing.png);
+}
+.curtains{
+  background-image: url(../../assets/menu/curtains.png);
+}
+.ac{
+  background-image: url(../../assets/menu/ac.png);
+}
+.buttonbase{
+  width: 130px;
+  height: 130px;
+  background-size: 130px 130px;
+  background-position: center;
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+  margin: 9px;
+}
+.buttonbase:hover{
+  background-size: 150px 150px;
+  background-position: center;
+  box-shadow: 0 0 15px rgba(255,255,0,0.8);
+}
+
+.buttoncover{
+  width: 130px;
+  height: 130px;
+  background: rgba(255, 255, 255, 0.5);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 29px;
+  font-family: Roboto;
+  color: black;
+  font-weight: 600;
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.buttoncover:hover{
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 33px;
+}

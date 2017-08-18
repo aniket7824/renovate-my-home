@@ -1,0 +1,55 @@
+<div class = "container">
+  <app-topdiv-fixed></app-topdiv-fixed>
+  <md-progress-bar mode="indeterminate" class="progressbar" *ngIf="loading == 1">  </md-progress-bar>
+  <div class="loaderror" *ngIf="loadError == 1">
+    Something went wrong<br><br>
+    <button md-fab (click)="initiate()"><i class="material-icons md-48">refresh</i></button>
+  </div>
+
+  <div class="loaderror" *ngIf="cart.currentItem == 0">
+    <br>
+    <br><br><br><br>Your Cart is Empty<br><br><i class="material-icons icon48">remove_shopping_cart</i>
+  </div>
+
+<div class="inlinediv cartname" *ngIf="loading == 0 && loadError == 0 && cart.currentItem > 0">
+  <label class="cartlabel">
+   <label class="leftspan">Cart</label>
+   <label class="rightspan"><i class="material-icons icon36">shopping_cart</i></label>
+  </label>
+</div>
+  <br>
+  <div class="inlinediv" *ngIf="loading == 0 && loadError == 0 && cart.currentItem > 0">
+    <label *ngIf="cart.cartAmount > cart.eligibleAmount" class="leftspan header">Your Loan Eligibility</label>
+    <label class="rightspan header">Total Cart Value</label>
+    <br>
+    <label *ngIf="cart.cartAmount > cart.eligibleAmount" class="leftspan amount loanamount">₹ {{cart.eligibleAmount}}</label>
+    <label class="rightspan amount cartamount">₹ {{cart.cartAmount.toFixed(2)}}</label>
+  </div>
+  <br><br>
+  <div class="inlinediv cartcontent" *ngIf="loading == 0 && loadError == 0">
+    <div class="inlinediv cartitem" *ngFor="let item of cart.serviceName, let i = index">
+      <label class="leftspan cartItemHeading">Service: {{item}}</label>
+      <button md-raised-button class="rightspan removeButton" (click)="cart.removeItem(i)">Remove &nbsp;<i class="material-icons icon18">remove_shopping_cart</i></button>
+      <br>
+      <table class="make-full-width">
+        <tr>
+          <td class="tdDetails">
+            <label class="cartServiceDetails">{{cart.serviceDetails[i]}}</label>
+            <br>
+            <label class="cartVendorName">{{cart.vendorName[i]}}</label></td>
+          <td class="tdPrice"><label class="cartItemPrice">₹ {{cart.amount[i].toFixed(2)}}</label></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  </div>
+
+<div class="lowerestimatediv"  *ngIf="loading == 0 && loadError == 0 && cart.currentItem > 0">
+  <button class="addmoreButton rightMar"  md-raised-button (click)="goMenu()">Add Item &nbsp;<i class="material-icons">add_shopping_cart</i></button>
+  <button class="checkoutButton leftMar"  md-raised-button (click)="checkoutClick()">Checkout &nbsp;<i class="material-icons">check_circle</i></button>
+</div>
+<div class="lowerestimatediv"  *ngIf="cart.currentItem == 0">
+  <button md-raised-button  class="addmoreButton" (click)="goMenu()">Add Item &nbsp;<i class="material-icons">add_shopping_cart</i></button>
+</div>
+
+<app-rmh-servicename-fixed></app-rmh-servicename-fixed>
